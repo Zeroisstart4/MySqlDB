@@ -5,6 +5,10 @@ import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.common.Type;
+import simpledb.excution.Aggregator;
+import simpledb.excution.OpIterator;
+import simpledb.excution.StringAggregator;
 import simpledb.systemtest.SimpleDbTestBase;
 import static org.junit.Assert.assertEquals;
 import junit.framework.JUnit4TestAdapter;

@@ -8,6 +8,19 @@ import java.util.*;
 import jline.ArgumentCompletor;
 import jline.ConsoleReader;
 import jline.SimpleCompletor;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.common.Type;
+import simpledb.excution.*;
+import simpledb.optimizer.LogicalPlan;
+import simpledb.optimizer.TableStats;
+import simpledb.storage.IntField;
+import simpledb.storage.StringField;
+import simpledb.storage.Tuple;
+import simpledb.storage.TupleDesc;
+import simpledb.transaction.Transaction;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 public class Parser {
     static boolean explain = false;
@@ -287,7 +300,7 @@ public class Parser {
         if (physicalPlan != null) {
             Class<?> c;
             try {
-                c = Class.forName("simpledb.OperatorCardinality");
+                c = Class.forName("simpledb.optimizer.OperatorCardinality");
 
                 Class<?> p = Operator.class;
                 Class<?> h = Map.class;
@@ -298,7 +311,7 @@ public class Parser {
                 System.out.println("The query plan is:");
                 m.invoke(null, (Operator) physicalPlan,
                         lp.getTableAliasToIdMapping(), TableStats.getStatsMap());
-                c = Class.forName("simpledb.QueryPlanVisualizer");
+                c = Class.forName("simpledb.optimizer.QueryPlanVisualizer");
                 m = c.getMethod(
                         "printQueryPlanTree", OpIterator.class, System.out.getClass());
                 m.invoke(c.newInstance(), physicalPlan,System.out);

@@ -4,6 +4,9 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
+import simpledb.common.Type;
+import simpledb.common.Utility;
+import simpledb.storage.TupleDesc;
 import simpledb.systemtest.SimpleDbTestBase;
 
 import static org.junit.Assert.*;
@@ -15,7 +18,8 @@ public class TupleDescTest extends SimpleDbTestBase {
     /**
      * Unit test for TupleDesc.combine()
      */
-    @Test public void combine() {
+    @Test
+    public void combine() {
         TupleDesc td1, td2, td3;
 
         td1 = Utility.getTupleDesc(1, "td1");
@@ -70,7 +74,8 @@ public class TupleDescTest extends SimpleDbTestBase {
     /**
      * Unit test for TupleDesc.getType()
      */
-    @Test public void getType() {
+    @Test
+    public void getType() {
         int[] lengths = new int[] { 1, 2, 1000 };
 
         for (int len: lengths) {
@@ -83,7 +88,8 @@ public class TupleDescTest extends SimpleDbTestBase {
     /**
      * Unit test for TupleDesc.nameToId()
      */
-    @Test public void nameToId() {
+    @Test
+    public void nameToId() {
         int[] lengths = new int[] { 1, 2, 1000 };
         String prefix = "test";
         
@@ -124,7 +130,8 @@ public class TupleDescTest extends SimpleDbTestBase {
     /**
      * Unit test for TupleDesc.getSize()
      */
-    @Test public void getSize() {
+    @Test
+    public void getSize() {
         int[] lengths = new int[] { 1, 2, 1000 };
 
         for (int len: lengths) {
@@ -136,7 +143,8 @@ public class TupleDescTest extends SimpleDbTestBase {
     /**
      * Unit test for TupleDesc.numFields()
      */
-    @Test public void numFields() {
+    @Test
+    public void numFields() {
         int[] lengths = new int[] { 1, 2, 1000 };
 
         for (int len : lengths) {
@@ -145,7 +153,8 @@ public class TupleDescTest extends SimpleDbTestBase {
         }
     }
 
-    @Test public void testEquals() {
+    @Test
+    public void testEquals() {
         TupleDesc singleInt = new TupleDesc(new Type[]{Type.INT_TYPE});
         TupleDesc singleInt2 = new TupleDesc(new Type[]{Type.INT_TYPE});
         TupleDesc intString = new TupleDesc(new Type[]{Type.INT_TYPE, Type.STRING_TYPE});

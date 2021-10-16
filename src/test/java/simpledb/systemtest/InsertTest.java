@@ -2,10 +2,18 @@ package simpledb.systemtest;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import simpledb.*;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.excution.Insert;
+import simpledb.excution.SeqScan;
+import simpledb.storage.HeapFile;
+import simpledb.storage.IntField;
+import simpledb.storage.Tuple;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 public class InsertTest extends SimpleDbTestBase {
     private void validateInsert(int columns, int sourceRows, int destinationRows)

@@ -2,7 +2,7 @@ package simpledb.systemtest;
 
 import org.junit.Before;
 
-import simpledb.Database;
+import simpledb.common.Database;
 
 /**
  * Base class for all SimpleDb test classes. 

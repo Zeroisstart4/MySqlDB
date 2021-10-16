@@ -6,6 +6,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import junit.framework.JUnit4TestAdapter;
+import simpledb.common.Utility;
+import simpledb.excution.Insert;
+import simpledb.excution.OpIterator;
+import simpledb.storage.TupleDesc;
+import simpledb.transaction.TransactionId;
 
 /**
  * We reserve more heavy-duty insertion testing for HeapFile and HeapPage.

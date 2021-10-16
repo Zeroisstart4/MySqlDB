@@ -5,9 +5,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import simpledb.*;
-
 import org.junit.Test;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.excution.Aggregate;
+import simpledb.excution.Aggregator;
+import simpledb.excution.SeqScan;
+import simpledb.storage.DbFile;
+import simpledb.storage.HeapFile;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 public class AggregateTest extends SimpleDbTestBase {
     public void validateAggregate(DbFile table, Aggregator.Op operation, int aggregateColumn, int groupColumn, ArrayList<ArrayList<Integer>> expectedResult)

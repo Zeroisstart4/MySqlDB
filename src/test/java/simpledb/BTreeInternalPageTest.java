@@ -1,8 +1,15 @@
 package simpledb;
 
-import simpledb.BTreeFileEncoder.EntryComparator;
-import simpledb.BTreeFileEncoder.ReverseEntryComparator;
+import simpledb.index.*;
+import simpledb.index.BTreeFileEncoder.EntryComparator;
+import simpledb.index.BTreeFileEncoder.ReverseEntryComparator;
 import simpledb.TestUtil.SkeletonFile;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.common.Type;
+import simpledb.common.Utility;
+import simpledb.storage.BufferPool;
+import simpledb.storage.IntField;
 import simpledb.systemtest.SimpleDbTestBase;
 import simpledb.systemtest.SystemTestUtil;
 
@@ -17,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import junit.framework.JUnit4TestAdapter;
+import simpledb.transaction.TransactionId;
 
 public class BTreeInternalPageTest extends SimpleDbTestBase {
 	private BTreePageId pid;
@@ -59,7 +67,7 @@ public class BTreeInternalPageTest extends SimpleDbTestBase {
 
 		// Convert it to a BTreeInternalPage
 		try {
-			EXAMPLE_DATA = BTreeFileEncoder.convertToInternalPage(entries, 
+			EXAMPLE_DATA = BTreeFileEncoder.convertToInternalPage(entries,
 					BufferPool.getPageSize(), Type.INT_TYPE, BTreePageId.LEAF);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

@@ -1,6 +1,6 @@
 package simpledb.systemtest;
 
-import simpledb.systemtest.SystemTestUtil;
+import simpledb.common.Database;
 
 import static org.junit.Assert.*;
 
@@ -14,10 +14,17 @@ import java.util.Random;
 import java.util.Iterator;
 
 import org.junit.Test;
-import org.junit.Before;
 
-import simpledb.*;
-import simpledb.Predicate.Op;
+import simpledb.excution.Predicate.Op;
+import simpledb.common.DbException;
+import simpledb.common.Utility;
+import simpledb.excution.IndexPredicate;
+import simpledb.index.BTreeFile;
+import simpledb.index.BTreeScan;
+import simpledb.index.BTreeUtility;
+import simpledb.storage.*;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 /**
  * Dumps the contents of a table.

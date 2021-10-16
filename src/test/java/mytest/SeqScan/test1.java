@@ -1,5 +1,11 @@
 package mytest.SeqScan;
-import simpledb.*;
+import simpledb.common.Database;
+import simpledb.common.Type;
+import simpledb.excution.SeqScan;
+import simpledb.storage.HeapFile;
+import simpledb.storage.Tuple;
+import simpledb.storage.TupleDesc;
+import simpledb.transaction.TransactionId;
 
 import java.io.*;
 

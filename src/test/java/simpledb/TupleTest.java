@@ -5,6 +5,8 @@ import junit.framework.JUnit4TestAdapter;
 
 import org.junit.Test;
 
+import simpledb.common.Utility;
+import simpledb.storage.*;
 import simpledb.systemtest.SimpleDbTestBase;
 
 public class TupleTest extends SimpleDbTestBase {
@@ -12,7 +14,8 @@ public class TupleTest extends SimpleDbTestBase {
     /**
      * Unit test for Tuple.getField() and Tuple.setField()
      */
-    @Test public void modifyFields() {
+    @Test
+    public void modifyFields() {
         TupleDesc td = Utility.getTupleDesc(2);
 
         Tuple tup = new Tuple(td);
@@ -32,7 +35,8 @@ public class TupleTest extends SimpleDbTestBase {
     /**
      * Unit test for Tuple.getTupleDesc()
      */
-    @Test public void getTupleDesc() {
+    @Test
+    public void getTupleDesc() {
         TupleDesc td = Utility.getTupleDesc(5);
         Tuple tup = new Tuple(td);
         assertEquals(td, tup.getTupleDesc());
@@ -41,7 +45,8 @@ public class TupleTest extends SimpleDbTestBase {
     /**
      * Unit test for Tuple.getRecordId() and Tuple.setRecordId()
      */
-    @Test public void modifyRecordId() {
+    @Test
+    public void modifyRecordId() {
         Tuple tup1 = new Tuple(Utility.getTupleDesc(1));
         HeapPageId pid1 = new HeapPageId(0,0);
         RecordId rid1 = new RecordId(pid1, 0);

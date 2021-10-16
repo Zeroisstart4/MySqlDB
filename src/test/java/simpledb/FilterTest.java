@@ -8,6 +8,12 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.common.Utility;
+import simpledb.excution.Filter;
+import simpledb.excution.OpIterator;
+import simpledb.excution.Predicate;
+import simpledb.storage.Tuple;
+import simpledb.storage.TupleDesc;
 import simpledb.systemtest.SimpleDbTestBase;
 
 public class FilterTest extends SimpleDbTestBase {

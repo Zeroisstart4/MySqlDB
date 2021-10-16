@@ -11,8 +11,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.common.Utility;
+import simpledb.excution.Predicate;
+import simpledb.optimizer.JoinOptimizer;
+import simpledb.optimizer.LogicalJoinNode;
+import simpledb.optimizer.TableStats;
+import simpledb.storage.BufferPool;
+import simpledb.storage.HeapFile;
+import simpledb.storage.HeapFileEncoder;
 import simpledb.systemtest.SimpleDbTestBase;
 import simpledb.systemtest.SystemTestUtil;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 public class JoinOptimizerTest extends SimpleDbTestBase {
 
@@ -88,7 +100,7 @@ public class JoinOptimizerTest extends SimpleDbTestBase {
     }
 
     private double[] getRandomJoinCosts(JoinOptimizer jo, LogicalJoinNode js,
-            int[] card1s, int[] card2s, double[] cost1s, double[] cost2s) {
+                                        int[] card1s, int[] card2s, double[] cost1s, double[] cost2s) {
         double[] ret = new double[card1s.length];
         for (int i = 0; i < card1s.length; ++i) {
             ret[i] = jo.estimateJoinCost(js, card1s[i], card2s[i], cost1s[i],

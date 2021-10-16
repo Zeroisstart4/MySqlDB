@@ -1,6 +1,11 @@
 package simpledb;
 
 import simpledb.TestUtil.SkeletonFile;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.common.Utility;
+import simpledb.index.BTreeHeaderPage;
+import simpledb.index.BTreePageId;
 import simpledb.systemtest.SimpleDbTestBase;
 import simpledb.systemtest.SystemTestUtil;
 
@@ -11,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import junit.framework.JUnit4TestAdapter;
+import simpledb.transaction.TransactionId;
 
 public class BTreeHeaderPageTest extends SimpleDbTestBase {
 	private BTreePageId pid;

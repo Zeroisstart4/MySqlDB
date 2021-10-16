@@ -1,7 +1,18 @@
 package simpledb;
 
-import simpledb.BTreeFileEncoder.TupleComparator;
+import simpledb.index.BTreeFileEncoder;
+import simpledb.index.BTreeFileEncoder.TupleComparator;
 import simpledb.TestUtil.SkeletonFile;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.common.Type;
+import simpledb.common.Utility;
+import simpledb.index.BTreeLeafPage;
+import simpledb.index.BTreePageId;
+import simpledb.index.BTreeUtility;
+import simpledb.storage.BufferPool;
+import simpledb.storage.IntField;
+import simpledb.storage.Tuple;
 import simpledb.systemtest.SimpleDbTestBase;
 import simpledb.systemtest.SystemTestUtil;
 
@@ -16,6 +27,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import junit.framework.JUnit4TestAdapter;
+import simpledb.transaction.TransactionId;
 
 public class BTreeLeafPageTest extends SimpleDbTestBase {
 	private BTreePageId pid;
@@ -57,7 +69,7 @@ public class BTreeLeafPageTest extends SimpleDbTestBase {
 
 		// Convert it to a BTreeLeafPage
 		try {
-			EXAMPLE_DATA = BTreeFileEncoder.convertToLeafPage(tuples, 
+			EXAMPLE_DATA = BTreeFileEncoder.convertToLeafPage(tuples,
 					BufferPool.getPageSize(), 2, new Type[]{Type.INT_TYPE, Type.INT_TYPE}, 0);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

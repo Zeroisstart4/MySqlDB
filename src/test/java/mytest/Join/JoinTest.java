@@ -1,6 +1,13 @@
 package mytest.Join;
 
-import simpledb.*;
+import simpledb.common.Database;
+import simpledb.common.Type;
+import simpledb.excution.*;
+import simpledb.storage.HeapFile;
+import simpledb.storage.IntField;
+import simpledb.storage.Tuple;
+import simpledb.storage.TupleDesc;
+import simpledb.transaction.TransactionId;
 
 import java.io.File;
 

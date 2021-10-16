@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.Test;
 
-import simpledb.BufferPool;
-import simpledb.Database;
-import simpledb.DbException;
-import simpledb.HeapFile;
-import simpledb.HeapFileEncoder;
+import simpledb.storage.BufferPool;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.storage.HeapFile;
+import simpledb.storage.HeapFileEncoder;
 import simpledb.Parser;
-import simpledb.TableStats;
-import simpledb.Transaction;
-import simpledb.TransactionAbortedException;
-import simpledb.Utility;
+import simpledb.optimizer.TableStats;
+import simpledb.transaction.Transaction;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.common.Utility;
 
 public class QueryTest {
 	

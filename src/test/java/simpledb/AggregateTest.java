@@ -8,6 +8,11 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.common.Utility;
+import simpledb.excution.Aggregate;
+import simpledb.excution.Aggregator;
+import simpledb.excution.OpIterator;
+import simpledb.storage.TupleDesc;
 import simpledb.systemtest.SimpleDbTestBase;
 
 public class AggregateTest extends SimpleDbTestBase {

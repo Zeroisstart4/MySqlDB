@@ -8,6 +8,7 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.index.BTreePageId;
 import simpledb.systemtest.SimpleDbTestBase;
 
 public class BTreePageIdTest extends SimpleDbTestBase {

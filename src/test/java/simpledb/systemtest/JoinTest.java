@@ -6,7 +6,15 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
-import simpledb.*;
+import simpledb.common.Database;
+import simpledb.common.DbException;
+import simpledb.excution.Join;
+import simpledb.excution.JoinPredicate;
+import simpledb.excution.Predicate;
+import simpledb.excution.SeqScan;
+import simpledb.storage.HeapFile;
+import simpledb.transaction.TransactionAbortedException;
+import simpledb.transaction.TransactionId;
 
 public class JoinTest extends SimpleDbTestBase {
     private static final int COLUMNS = 2;

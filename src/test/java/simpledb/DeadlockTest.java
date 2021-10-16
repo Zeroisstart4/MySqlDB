@@ -8,6 +8,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import junit.framework.JUnit4TestAdapter;
+import simpledb.common.Database;
+import simpledb.common.Permissions;
+import simpledb.common.Utility;
+import simpledb.storage.BufferPool;
+import simpledb.storage.HeapPageId;
+import simpledb.storage.PageId;
+import simpledb.transaction.TransactionId;
 
 public class DeadlockTest extends TestUtil.CreateHeapFile {
   private PageId p0, p1, p2;

@@ -8,6 +8,13 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.Before;
 import org.junit.Test;
 
+import simpledb.common.Utility;
+import simpledb.excution.Join;
+import simpledb.excution.JoinPredicate;
+import simpledb.excution.OpIterator;
+import simpledb.excution.Predicate;
+import simpledb.storage.Tuple;
+import simpledb.storage.TupleDesc;
 import simpledb.systemtest.SimpleDbTestBase;
 
 public class JoinTest extends SimpleDbTestBase {

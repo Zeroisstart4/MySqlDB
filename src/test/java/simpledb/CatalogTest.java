@@ -12,6 +12,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import simpledb.TestUtil.SkeletonFile;
+import simpledb.common.Database;
+import simpledb.common.Utility;
+import simpledb.storage.DbFile;
+import simpledb.storage.TupleDesc;
 import simpledb.systemtest.SimpleDbTestBase;
 import simpledb.systemtest.SystemTestUtil;
 
